@@ -1,10 +1,8 @@
-import { createStore, combineReducers } from 'redux';
-import cartReducer from './reducers/cartReducer';
+import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers/rootReducer';
 
-const rootReducer = combineReducers({
-  cart: cartReducer,
-});
 const store = createStore(rootReducer, composeWithDevTools());
+export type AppState = ReturnType<typeof rootReducer>;
 
 export default store;
